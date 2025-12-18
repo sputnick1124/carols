@@ -1,0 +1,117 @@
+\documentclass[14pt]{memoir}
+
+\usepackage{graphicx}
+\usepackage{verse}
+\newcommand{\ptitle}[1]{%
+\poemtitle{\HUGE\titlefont \textcolor{titleRed}{\textbf{#1}}}%
+}
+
+\usepackage{multicol}
+\setlength{\columnsep}{-2.5cm}
+\usepackage{xltxtra,fontspec,xunicode}
+\defaultfontfeatures{Scale=MatchLowercase}
+\newfontfamily\titlefont{EdwardianScriptITC}
+\setromanfont{Carlito}
+
+\usepackage[left=0.75cm,top=5cm,right=0.75cm,bottom=3cm]{geometry}
+\usepackage{xcolor}
+\definecolor{titleRed}{HTML}{A42E2A}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{tikzpagenodes}
+\usepackage{fancyhdr}
+% \pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{headerA}{%
+  \fancyhf{}%
+  \setlength{\headheight}{2.5cm}
+  \chead{\begin{tikzpicture}[remember picture,overlay]
+  \draw  let \p1=($(current page.north)-(current page header area.south)$),
+        \n1={veclen(\x1,\y1)} in
+  node [inner sep=0,outer sep=0,below right] 
+        at (current page.north west){\includegraphics[width=\paperwidth]{images/header-1}};
+  \end{tikzpicture}}
+  \rfoot{\thepage}
+}
+
+\fancypagestyle{headfootA}{%
+  \fancyhf{}%
+  \setlength{\headheight}{2.5cm}
+  \chead{\begin{tikzpicture}[remember picture,overlay]
+  \draw  let \p1=($(current page.north)-(current page header area.south)$),
+        \n1={veclen(\x1,\y1)} in
+  node [inner sep=0,outer sep=0,below right] 
+        at (current page.north west){\includegraphics[width=\paperwidth]{images/header-1}};
+  \end{tikzpicture}}
+  \fancyfoot{\begin{tikzpicture}[remember picture,overlay]
+  \draw  let \p1=($(current page.south)-(current page footer area.north)$),
+        \n1={veclen(\x1,\y1)} in
+  node [inner sep=0,outer sep=0,above right] 
+        at (current page.south west){\includegraphics[width=\paperwidth]{images/footer-1}};
+  \end{tikzpicture}\thepage}
+}
+
+\fancypagestyle{headerB}{%
+  \fancyhf{}%
+  \setlength{\headheight}{2.5cm}
+  \chead{\begin{tikzpicture}[remember picture,overlay]
+  \draw  let \p1=($(current page.north)-(current page header area.south)$),
+        \n1={veclen(\x1,\y1)} in
+  node [inner sep=0,outer sep=0,below right] 
+        at (current page.north west){\includegraphics[width=\paperwidth]{images/header-2}};
+  \end{tikzpicture}}
+  \fancyfoot{\thepage}
+}
+
+\fancypagestyle{headerC}{%
+  \fancyhf{}%
+  \setlength{\headheight}{2.5cm}
+  \chead{\begin{tikzpicture}[remember picture,overlay]
+  \draw  let \p1=($(current page.north)-(current page header area.south)$),
+        \n1={veclen(\x1,\y1)} in
+  node [inner sep=0,outer sep=0,below right] 
+        at (current page.north west){\includegraphics[width=\paperwidth]{images/header-3}};
+  \end{tikzpicture}}
+  \fancyfoot{\thepage}
+}
+
+\fancypagestyle{headerD}{%
+  \fancyhf{}%
+  \setlength{\headheight}{3.8cm}
+  \chead{\begin{tikzpicture}[remember picture,overlay]
+  \draw  let \p1=($(current page.north)-(current page header area.south)$),
+        \n1={veclen(\x1,\y1)} in
+  node [inner sep=0,outer sep=0,below right] 
+        at (current page.north west){\includegraphics[width=\paperwidth]{images/header-4}};
+  \end{tikzpicture}}
+  \fancyfoot{\thepage}
+}
+
+\fancypagestyle{headerE}{%
+  \fancyhf{}%
+  \setlength{\headheight}{4cm}
+  \chead{\begin{tikzpicture}[remember picture,overlay]
+  \draw  let \p1=($(current page.north)-(current page header area.south)$),
+        \n1={veclen(\x1,\y1)} in
+  node [inner sep=0,outer sep=0,below right] 
+        at (current page.north west){\includegraphics[width=\paperwidth]{images/header-5}};
+  \end{tikzpicture}}
+  \fancyfoot{\thepage}
+}
+
+
+\begin{document}
+\tableofcontents
+\newpage
+
+\input{pages/do-you-hear-what-i-hear}
+\pagebreak
+
+\input{pages/angels-we-have-heard-on-high}
+\pagebreak
+
+\input{pages/away-in-a-manger}
+\pagebreak
+
+\end{document}
