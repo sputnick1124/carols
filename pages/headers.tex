@@ -1,0 +1,87 @@
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{tikzpagenodes}
+\usepackage{fancyhdr}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{flower-header-1}{%
+  \fancyhf{}%
+  \setlength{\headheight}{1.5cm}
+  \fancyhead[C]{\begin{tikzpicture}[remember picture,overlay]
+  \draw  let \p1=($(current page.north)-(current page header area.south)$),
+        \n1={veclen(\x1,\y1)} in
+  node [inner sep=0,outer sep=0,below right] 
+        at (current page.north west){\includegraphics[width=\paperwidth]{images/flower-header-1}};
+  \end{tikzpicture}}
+  \fancyfoot[R]{\thepage}
+}
+
+\fancypagestyle{flower-headfoot-1}{%
+  \fancyhf{}%
+  \setlength{\headheight}{1.5cm}
+  % \setlength{\footheight}{2.0cm}
+  \fancyhead[C]{\begin{tikzpicture}[remember picture,overlay]
+  \draw  let \p1=($(current page.north)-(current page header area.south)$),
+        \n1={veclen(\x1,\y1)} in
+  node [inner sep=0,outer sep=0,below right] 
+        at (current page.north west){\includegraphics[width=\paperwidth]{images/flower-header-1}};
+  \end{tikzpicture}}
+  \fancyfoot[R]{\begin{tikzpicture}[remember picture,overlay]
+  \draw  let \p1=($(current page.south)-(current page footer area.north)$),
+        \n1={veclen(\x1,\y1)} in
+  node [inner sep=0,outer sep=0,above right] 
+        at (current page.south west){\includegraphics[width=\paperwidth]{images/flower-footer}};
+  \end{tikzpicture}\thepage}
+}
+
+\fancypagestyle{flower-lamp-header}{%
+  \fancyhf{}%
+  \setlength{\headheight}{1.5cm}
+  \fancyhead[C]{\begin{tikzpicture}[remember picture,overlay]
+  \draw  let \p1=($(current page.north)-(current page header area.south)$),
+        \n1={veclen(\x1,\y1)} in
+  node [inner sep=0,outer sep=0,below right] 
+        at (current page.north west){\includegraphics[width=\paperwidth]{images/flower-lamp-header}};
+  \end{tikzpicture}}
+  \fancyfoot[R]{\thepage}
+}
+
+\fancypagestyle{foliage-header}{%
+  \fancyhf{}%
+  \setlength{\headheight}{0.5cm}
+  \fancyhead[C]{\begin{tikzpicture}[remember picture,overlay]
+  \draw  let \p1=($(current page.north)-(current page header area.south)$),
+        \n1={veclen(\x1,\y1)} in
+  node [inner sep=0,outer sep=0,below right] 
+        at (current page.north west){\includegraphics[width=\paperwidth]{images/foliage-header}};
+  \end{tikzpicture}}
+  \fancyfoot[R]{\thepage}
+}
+
+\fancypagestyle{cabin-lamp-header}{%
+  \fancyhf{}%
+  \setlength{\headheight}{2.6cm}
+  \fancyhead[C]{\begin{tikzpicture}[remember picture,overlay]
+  \draw  let \p1=($(current page.north)-(current page header area.south)$),
+        \n1={veclen(\x1,\y1)} in
+  node [inner sep=0,outer sep=0,below right] 
+        at (current page.north west){\includegraphics[width=\paperwidth]{images/cabin-lamp-header}};
+  \end{tikzpicture}}
+  \fancyfoot[R]{\thepage}
+}
+
+\fancypagestyle{flower-header-2}{%
+  \fancyhf{}%
+  \setlength{\headheight}{3cm}
+  \fancyhead[C]{\begin{tikzpicture}[remember picture,overlay]
+  \draw  let \p1=($(current page.north)-(current page header area.south)$),
+        \n1={veclen(\x1,\y1)} in
+  node [inner sep=0,outer sep=0,below right] 
+        at (current page.north west){\includegraphics[width=\paperwidth]{images/flower-header-2}};
+  \end{tikzpicture}}
+  \fancyfoot[R]{\thepage}
+}
+
+
+\pagebreak
