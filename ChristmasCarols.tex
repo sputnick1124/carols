@@ -1,4 +1,4 @@
-\documentclass[14pt]{memoir}
+\documentclass[oneside,14pt,extrafontsizes]{memoir}
 
 \usepackage{graphicx}
 \usepackage{verse}
@@ -11,68 +11,73 @@
 \setromanfont{Carlito}
 
 \usepackage[
-  left=0.75cm,
-  top=5cm,
-  right=0.75cm,
-  bottom=3cm,
+  left=0.5cm,
+  top=7.5cm,
+  right=0.5cm,
+  bottom=1cm,
   includeheadfoot,
-  heightrounded
+  heightrounded,
 ]{geometry}
 \usepackage{xcolor}
 \definecolor{titleRed}{HTML}{A42E2A}
-\renewcommand{\poemtitlefont}{\HUGE\titlefont\centering\color{titleRed}}
+\newcommand{\titlefontstyle}{\titlefont\centering\color{titleRed}}
+\renewcommand{\poemtitlefont}{\Large\titlefontstyle}
+
+\pretitle{\begin{center}\HUGE\titlefontstyle{}\vskip 1em}
+\title{Sing We Now at Christmas}
+\posttitle{\par\end{center}}
+\date{}
+\author{}
 
 \input{pages/headers}
 
 \begin{document}
+\begin{KeepFromToc}
+\maketitle
+
+\newgeometry{top=0.5cm,bottom=0.5cm}
+\thispagestyle{toc}
 \tableofcontents
 \newpage
+\end{KeepFromToc}
+\restoregeometry
 
-\input{pages/do-you-hear-what-i-hear}
-
-\input{pages/it-came-upon-a-midnight-clear}
-
-\input{pages/jingle-bells}
-
-\input{pages/joy-to-the-world}
-
-\input{pages/let-it-snow}
-
-\input{pages/deck-the-halls}
-
-\input{pages/away-in-a-manger}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\raggedcolumns
 
 \input{pages/angels-we-have-heard-on-high}
-
+\input{pages/away-in-a-manger}
+\input{pages/bring-a-torch-jeanette-isabella}
+\input{pages/carol-of-the-bells}
+\input{pages/deck-the-halls}
+\input{pages/ding-dong-merrily-on-high}
+% \input{pages/do-you-hear-what-i-hear}
 \input{pages/frosty-the-snowman}
-
 \input{pages/god-rest-ye-merry-gentlemen}
-
 \input{pages/hark-the-herald-angels-sing}
-
+\input{pages/here-we-come-a-wassailing}
 \input{pages/holly-jolly-christmas}
-
+\input{pages/i-saw-three-ships}
+\input{pages/i-heard-the-bells-on-christmas-day}
+\input{pages/it-came-upon-a-midnight-clear}
+\input{pages/jingle-bells}
+\input{pages/joy-to-the-world}
+\input{pages/let-it-snow}
 \input{pages/o-christmas-tree}
-
-\input{pages/oh-come-all-ye-faithful}
-
+\input{pages/o-come-o-come-emmanuel}
 \input{pages/o-holy-night}
-
 \input{pages/o-little-town-of-bethlehem}
-
+\input{pages/oh-come-all-ye-faithful}
 \input{pages/rudolph-the-red-nosed-reindeer}
-
 \input{pages/silent-night}
-
 \input{pages/silver-bells}
-
 \input{pages/the-first-noel}
-
+\input{pages/the-holly-and-the-ivy}
 \input{pages/we-wish-you-a-merry-christmas}
-
 \input{pages/what-child-is-this}
-
 \input{pages/white-christmas}
-
+\input{pages/with-wondering-awe}
 \input{pages/winter-wonderland}
+
 \end{document}

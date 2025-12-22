@@ -5,83 +5,112 @@
 
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-\fancypagestyle{flower-header-1}{%
+
+\aliaspagestyle{plain}{empty}
+\aliaspagestyle{chapter}{toc}
+
+\newcommand{\makeheader}[1]{%
+  \begin{tikzpicture}[remember picture,overlay]
+  \draw node [inner sep=0,outer sep=0,below right] 
+        at (current page.north west){\includegraphics[width=\paperwidth]{#1}};
+  \end{tikzpicture}
+}
+
+\newcommand{\makefooter}[1]{%
+  \begin{tikzpicture}[remember picture,overlay]
+  \draw node [inner sep=0,outer sep=0,above right] 
+        at (current page.south west){\includegraphics[width=\paperwidth]{#1}};
+  \end{tikzpicture}
+}
+
+\newcommand{\tlflower}[1][flower]{%
+\begin{tikzpicture}[remember picture,overlay]
+\draw node [inner sep=0,outer sep=0,below right] 
+at (current page.north west){\includegraphics[width=0.3\paperwidth]{images/#1-tl-corner}};
+\end{tikzpicture}}
+
+\newcommand{\trflower}[1][flower]{%
+\begin{tikzpicture}[remember picture,overlay]
+\draw node [inner sep=0,outer sep=0,below left] 
+at (current page.north east){\includegraphics[width=0.3\paperwidth]{images/#1-tr-corner}};
+\end{tikzpicture}}
+
+\newcommand{\brflower}[1][flower]{%
+\begin{tikzpicture}[remember picture,overlay]
+\draw node [inner sep=0,outer sep=0,above left] 
+at (current page.south east){\includegraphics[width=0.3\paperwidth,angle=-90]{images/#1-tr-corner}};
+\end{tikzpicture}}
+
+\newcommand{\blflower}[1][flower]{%
+\begin{tikzpicture}[remember picture,overlay]
+\draw node [inner sep=0,outer sep=0,above right] 
+at (current page.south west){\includegraphics[width=0.3\paperwidth,angle=90]{images/#1-tl-corner}};
+\end{tikzpicture}}
+
+\newcommand{\makecenterflourish}[2][0]{%
+  \begin{tikzpicture}[remember picture,overlay]
+  \draw node [inner sep=0,outer sep=0,above] 
+    at ([xshift=0.5\paperwidth,yshift=#1\paperheight]current page.south west){\includegraphics[width=0.5\paperwidth]{#2}};
+\end{tikzpicture}}
+
+\fancypagestyle{title}{%
   \fancyhf{}%
-  \setlength{\headheight}{1.5cm}
-  \fancyhead[C]{\begin{tikzpicture}[remember picture,overlay]
-  \draw  let \p1=($(current page.north)-(current page header area.south)$),
-        \n1={veclen(\x1,\y1)} in
-  node [inner sep=0,outer sep=0,below right] 
-        at (current page.north west){\includegraphics[width=\paperwidth]{images/flower-header-1}};
-  \end{tikzpicture}}
-  \fancyfoot[R]{\thepage}
+  % \begin{tikzpicture}[remember picture,overlay]
+  % \draw node [inner sep=0,outer sep=0,below right] 
+  %       at (current page.north west){\includegraphics[width=\paperwidth,angle=180]{images/flower-footer}};
+  % % \draw node [inner sep=0,outer sep=0,above right] 
+  % %       at (current page.south west){\includegraphics[width=\paperwidth,angle=180]{images/flower-header-2}};
+  % \end{tikzpicture}
+  \makecenterflourish[0.6]{images/flower-wreath}
+  \makefooter{images/flower-footer}
+}
+
+\fancypagestyle{toc}{%
+  \fancyhf{}%
+  \tlflower{}
+  \brflower{}
 }
 
 \fancypagestyle{flower-headfoot-1}{%
   \fancyhf{}%
-  \setlength{\headheight}{1.5cm}
-  % \setlength{\footheight}{2.0cm}
-  \fancyhead[C]{\begin{tikzpicture}[remember picture,overlay]
-  \draw  let \p1=($(current page.north)-(current page header area.south)$),
-        \n1={veclen(\x1,\y1)} in
-  node [inner sep=0,outer sep=0,below right] 
-        at (current page.north west){\includegraphics[width=\paperwidth]{images/flower-header-1}};
-  \end{tikzpicture}}
-  \fancyfoot[R]{\begin{tikzpicture}[remember picture,overlay]
-  \draw  let \p1=($(current page.south)-(current page footer area.north)$),
-        \n1={veclen(\x1,\y1)} in
-  node [inner sep=0,outer sep=0,above right] 
-        at (current page.south west){\includegraphics[width=\paperwidth]{images/flower-footer}};
-  \end{tikzpicture}\thepage}
+  \makeheader{images/flower-header-1}
+  \makefooter{images/flower-footer}
+  \fancyfoot[R]{\thepage}
+}
+
+\fancypagestyle{flower-header-1}{%
+  \fancyhf{}%
+  \makeheader{images/flower-header-1}
+  \fancyfoot[R]{\thepage}
 }
 
 \fancypagestyle{flower-lamp-header}{%
   \fancyhf{}%
-  \setlength{\headheight}{1.5cm}
-  \fancyhead[C]{\begin{tikzpicture}[remember picture,overlay]
-  \draw  let \p1=($(current page.north)-(current page header area.south)$),
-        \n1={veclen(\x1,\y1)} in
-  node [inner sep=0,outer sep=0,below right] 
-        at (current page.north west){\includegraphics[width=\paperwidth]{images/flower-lamp-header}};
-  \end{tikzpicture}}
+  \makeheader{images/flower-lamp-header}
   \fancyfoot[R]{\thepage}
 }
 
 \fancypagestyle{foliage-header}{%
   \fancyhf{}%
-  \setlength{\headheight}{0.5cm}
-  \fancyhead[C]{\begin{tikzpicture}[remember picture,overlay]
-  \draw  let \p1=($(current page.north)-(current page header area.south)$),
-        \n1={veclen(\x1,\y1)} in
-  node [inner sep=0,outer sep=0,below right] 
-        at (current page.north west){\includegraphics[width=\paperwidth]{images/foliage-header}};
-  \end{tikzpicture}}
+  \makeheader{images/foliage-header}
   \fancyfoot[R]{\thepage}
 }
 
 \fancypagestyle{cabin-lamp-header}{%
   \fancyhf{}%
-  \setlength{\headheight}{2.6cm}
-  \fancyhead[C]{\begin{tikzpicture}[remember picture,overlay]
-  \draw  let \p1=($(current page.north)-(current page header area.south)$),
-        \n1={veclen(\x1,\y1)} in
-  node [inner sep=0,outer sep=0,below right] 
-        at (current page.north west){\includegraphics[width=\paperwidth]{images/cabin-lamp-header}};
-  \end{tikzpicture}}
+  \makeheader{images/cabin-lamp-header}
   \fancyfoot[R]{\thepage}
 }
 
 \fancypagestyle{flower-header-2}{%
   \fancyhf{}%
-  \setlength{\headheight}{3cm}
-  \fancyhead[C]{\begin{tikzpicture}[remember picture,overlay]
-  \draw  let \p1=($(current page.north)-(current page header area.south)$),
-        \n1={veclen(\x1,\y1)} in
-  node [inner sep=0,outer sep=0,below right] 
-        at (current page.north west){\includegraphics[width=\paperwidth]{images/flower-header-2}};
-  \end{tikzpicture}}
+  \makeheader{images/flower-header-2}
   \fancyfoot[R]{\thepage}
 }
 
+\newcommand{\deerfooter}{%
+\begin{tikzpicture}[remember picture,overlay]
+\draw node [inner sep=0,outer sep=0,above right] 
+at ([xshift=-2.5cm]current page.south west){\includegraphics[width=0.7\paperwidth]{images/deer-2}};
+\end{tikzpicture}}
 
-\pagebreak

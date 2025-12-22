@@ -12,7 +12,7 @@ With th' angelic host proclaim\\
 Christ is born in Bethlehem\\
 Hark, the herald angels sing\\
 Glory to the newborn King\\!
-\vfill*{}
+\columnbreak
 
 Hail, the heav'n-born Prince of peace\\*
 Hail! the Son of Righteousness\\*
@@ -36,11 +36,7 @@ Christ is born in Bethlehem\\
 Hark, the herald angels sing\\
 Glory to the newborn King\\!
 \end{verse}
+\deerfooter
 \end{multicols}
-\begin{tikzpicture}[remember picture,overlay]
-\draw  let \p1=($(current page.south)-(current page footer area.north)$),
-\n1={veclen(\x1,\y1)} in
-node [inner sep=0,outer sep=0,above right] 
-at ([xshift=-2.5cm]current page.south west){\includegraphics[width=0.7\paperwidth]{images/deer-2}};
-\end{tikzpicture}
 \pagebreak
+
